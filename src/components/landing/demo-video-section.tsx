@@ -16,22 +16,38 @@ export function DemoVideoSection({
   language: Language
 }) {
   return (
-    <section className='border-b border-border/60 pb-12 md:pb-16'>
+    <section
+      id='demo-video'
+      className='scroll-mt-20 border-b border-border/60 bg-muted/30 py-12 md:py-16'
+    >
       <div className='container'>
-        <div className='mx-auto w-full max-w-[60rem]'>
-          <div className='overflow-hidden rounded-xl border border-border bg-card shadow-sm ring-1 ring-border/60'>
-            <div className='relative aspect-video w-full bg-muted'>
+        <div className='mx-auto mb-8 max-w-2xl text-center'>
+          <p className='text-sm font-medium text-amber-700'>
+            {getLandingText(copy.video.kicker, language)}
+          </p>
+          <h2 className='mt-2 text-2xl font-bold tracking-tight md:text-3xl'>
+            {getLandingText(copy.video.title, language)}
+          </h2>
+          <p className='mt-3 text-sm text-muted-foreground md:text-base'>
+            {getLandingText(copy.video.caption, language)}
+          </p>
+        </div>
+
+        <div className='mx-auto w-full max-w-4xl'>
+          <div className='overflow-hidden rounded-xl border border-border bg-black'>
+            <div className='relative aspect-video w-full'>
               {embedSrc ? (
                 <iframe
-                  title='YouTube video player'
+                  title='FlowPOS product demo'
                   src={embedSrc}
                   className='absolute inset-0 size-full border-0'
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
                   referrerPolicy='strict-origin-when-cross-origin'
                   allowFullScreen
+                  loading='lazy'
                 />
               ) : (
-                <div className='flex size-full flex-col items-center justify-center gap-2 text-muted-foreground'>
+                <div className='flex size-full flex-col items-center justify-center gap-2 bg-muted text-muted-foreground'>
                   <Play className='size-10 opacity-40' />
                   <p className='text-sm'>
                     {language === 'en'
@@ -42,9 +58,6 @@ export function DemoVideoSection({
               )}
             </div>
           </div>
-          <p className='mt-3 text-center text-sm text-muted-foreground'>
-            {getLandingText(copy.hero.videoCaption, language)}
-          </p>
         </div>
       </div>
     </section>

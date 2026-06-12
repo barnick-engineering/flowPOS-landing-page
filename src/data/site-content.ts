@@ -58,12 +58,16 @@ export const landingCopy = {
       'FlowPOS is built for restaurants and food businesses in Bangladesh and beyond. Subscribe per branch, onboard your team, and operate from counter to back office without juggling separate tools.',
       'FlowPOS বাংলাদেশসহ নানা জায়গার রেস্তোরাঁ ও ফুড বিজনেসের জন্য বানানো। প্রতি শাখায় সাবস্ক্রাইব করুন, টিম অনবোর্ড করুন, আর কাউন্টার থেকে ব্যাক অফিস পর্যন্ত আলাদা টুল ছাড়াই কাজ করুন।',
     ),
-    videoCaption: text(
-      'See FlowPOS in action — POS, kitchen, payments, and reports',
-      'FlowPOS দেখুন — POS, কিচেন, পেমেন্ট ও রিপোর্ট',
-    ),
     ctaTrial: text('Start free trial', 'ফ্রি ট্রায়াল শুরু করুন'),
     ctaGetStarted: text('Get started', 'শুরু করুন'),
+  },
+  video: {
+    kicker: text('Product demo', 'প্রোডাক্ট ডেমো'),
+    title: text('Watch FlowPOS in action', 'FlowPOS কাজ করতে দেখুন'),
+    caption: text(
+      'POS, kitchen, payments, and reports — a short walkthrough of the platform.',
+      'POS, কিচেন, পেমেন্ট ও রিপোর্ট — প্ল্যাটফর্মের একটি সংক্ষিপ্ত ওয়াকথ্রু।',
+    ),
   },
   analytics: {
     kicker: text('Built into the product', 'প্রোডাক্টের ভেতরেই আছে'),

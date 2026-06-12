@@ -21,5 +21,5 @@ export function getYoutubeEmbedId(url: string): string | null {
 export function getYoutubeEmbedSrc(url: string): string | null {
   const id = getYoutubeEmbedId(url)
   if (!id) return null
-  return `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`
+  return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&playsinline=1`
 }
