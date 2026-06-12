@@ -1,5 +1,10 @@
 import { LandingPage } from '@/pages/landing-page'
+import { PreferencesProvider } from '@/contexts/preferences-context'
 
 export function App() {
-  return <LandingPage />
+  return (
+    <PreferencesProvider>
+      <LandingPage />
+    </PreferencesProvider>
+  )
 }

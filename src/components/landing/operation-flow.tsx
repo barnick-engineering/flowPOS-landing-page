@@ -1,19 +1,26 @@
-import { operationSteps } from '@/data/site-content'
+import { operationSteps, getLandingText, landingCopy } from '@/data/site-content'
 import { cn } from '@/lib/utils'
+import type { Language } from '@/lib/preferences'
 
-export function OperationFlow() {
+export function OperationFlow({
+  copy,
+  language,
+}: {
+  copy: typeof landingCopy
+  language: Language
+}) {
   return (
     <section id='how-it-works' className='scroll-mt-20 py-16 md:py-24'>
       <div className='container'>
         <div className='mx-auto max-w-2xl text-center'>
-          <p className='text-sm font-medium text-amber-700'>How FlowPOS runs</p>
+          <p className='text-sm font-medium text-amber-700'>
+            {getLandingText(copy.operations.kicker, language)}
+          </p>
           <h2 className='mt-2 text-3xl font-bold tracking-tight md:text-4xl'>
-            Clear path from first order to month-end
+            {getLandingText(copy.operations.title, language)}
           </h2>
           <p className='mt-3 text-muted-foreground'>
-            Whether you run a busy dine-in floor or a takeaway counter, the same
-            SaaS tenant follows one operational story — setup, sell, fulfill, pay,
-            then manage stock and people.
+            {getLandingText(copy.operations.description, language)}
           </p>
         </div>
 
@@ -44,12 +51,14 @@ export function OperationFlow() {
                       Step {item.step}
                     </span>
                     <span className='text-xs text-muted-foreground'>
-                      {item.summary}
+                      {getLandingText(item.summary, language)}
                     </span>
                   </div>
-                  <h3 className='mt-1 text-lg font-semibold'>{item.title}</h3>
+                  <h3 className='mt-1 text-lg font-semibold'>
+                    {getLandingText(item.title, language)}
+                  </h3>
                   <p className='mt-2 text-sm leading-relaxed text-muted-foreground'>
-                    {item.detail}
+                    {getLandingText(item.detail, language)}
                   </p>
                 </div>
               </li>
@@ -58,9 +67,10 @@ export function OperationFlow() {
         </ol>
 
         <div className='mx-auto mt-10 max-w-3xl rounded-xl border border-dashed border-amber-500/40 bg-amber-500/5 px-5 py-4 text-center text-sm text-muted-foreground'>
-          <strong className='text-foreground'>SaaS model:</strong> each restaurant
-          (tenant) gets isolated data, configurable modules per employee, and
-          optional kitchen mode — you pay per branch, not per receipt.
+          <strong className='text-foreground'>
+            {getLandingText(copy.operations.footnoteStrong, language)}
+          </strong>
+          {getLandingText(copy.operations.footnoteAfter, language)}
         </div>
       </div>
     </section>

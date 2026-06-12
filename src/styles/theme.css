@@ -14,6 +14,25 @@
   --accent-foreground: oklch(0.25 0.03 265);
   --border: oklch(0.9 0.015 95);
   --ring: oklch(0.72 0.17 75);
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --background: oklch(0.17 0.02 265);
+  --foreground: oklch(0.98 0.01 95);
+  --card: oklch(0.21 0.02 265);
+  --card-foreground: oklch(0.98 0.01 95);
+  --primary: oklch(0.8 0.16 75);
+  --primary-foreground: oklch(0.18 0.02 265);
+  --secondary: oklch(0.25 0.02 265);
+  --secondary-foreground: oklch(0.98 0.01 95);
+  --muted: oklch(0.23 0.02 265);
+  --muted-foreground: oklch(0.74 0.02 265);
+  --accent: oklch(0.29 0.03 85);
+  --accent-foreground: oklch(0.98 0.01 95);
+  --border: oklch(0.31 0.02 265);
+  --ring: oklch(0.8 0.16 75);
+  color-scheme: dark;
 }
 
 @theme inline {

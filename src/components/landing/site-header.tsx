@@ -1,41 +1,56 @@
 import { Button } from '@/components/ui/button'
+import { PreferencesControls } from '@/components/landing/preferences-controls'
+import { getAppLoginUrl } from '@/lib/app-url'
+import { getLandingText } from '@/data/site-content'
+import type { Language } from '@/lib/preferences'
+import { landingCopy } from '@/data/site-content'
 
-const appUrl = import.meta.env.VITE_APP_URL ?? 'http://localhost:5173'
+const appLoginUrl = getAppLoginUrl()
 
-const nav = [
-  { label: 'How it works', href: '#how-it-works' },
-  { label: 'Features', href: '#features' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Contact', href: '#contact' },
+const navItems = (copy: typeof landingCopy, language: Language) => [
+  { label: getLandingText(copy.header.nav.features, language), href: '#features' },
+  { label: getLandingText(copy.header.nav.pricing, language), href: '#pricing' },
+  { label: getLandingText(copy.header.nav.contact, language), href: '#contact' },
 ]
 
-export function SiteHeader() {
+export function SiteHeader({
+  copy,
+  language,
+}: {
+  copy: typeof landingCopy
+  language: Language
+}) {
   return (
     <header className='sticky top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur-md'>
-      <div className='container flex h-14 items-center justify-between gap-4'>
-        <a href='#' className='flex items-center gap-2 font-semibold tracking-tight'>
+      <div className='container grid h-14 grid-cols-[1fr_auto_1fr] items-center gap-2'>
+        <a
+          href='#'
+          className='flex items-center gap-2 font-semibold tracking-tight justify-self-start'
+        >
           <span className='flex size-8 items-center justify-center rounded-lg bg-amber-500 text-sm font-bold text-stone-950'>
             F
           </span>
-          FlowPOS
+          <span className='hidden sm:inline'>FlowPOS</span>
         </a>
-        <nav className='hidden items-center gap-6 text-sm text-muted-foreground md:flex'>
-          {nav.map((item) => (
+
+        <nav className='flex items-center justify-center gap-3 text-xs text-muted-foreground sm:gap-6 sm:text-sm'>
+          {navItems(copy, language).map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className='transition-colors hover:text-foreground'
+              className='whitespace-nowrap transition-colors hover:text-foreground'
             >
               {item.label}
             </a>
           ))}
         </nav>
-        <div className='flex items-center gap-2'>
-          <Button variant='ghost' size='sm' asChild>
-            <a href={`${appUrl}/login`}>Log in</a>
-          </Button>
+
+        <div className='flex items-center justify-self-end gap-1 sm:gap-2'>
+          <PreferencesControls />
           <Button size='sm' asChild>
-            <a href={`${appUrl}/login`}>Open app</a>
+            <a href={appLoginUrl}>
+              {getLandingText(copy.header.actions.getStarted, language)}
+            </a>
           </Button>
         </div>
       </div>
